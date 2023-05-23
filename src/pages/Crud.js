@@ -24,6 +24,7 @@ const CRUD = () => {
         if (userId && id && title && body) {
             axios.post('https://jsonplaceholder.typicode.com/posts', formData)
                 .then(res => {
+                    // console.log(res.data);
                     setData([...data, res.data]);
                     setFormData({ userId: "", id: "", title: "", body: "" });
 
@@ -66,6 +67,7 @@ const CRUD = () => {
     useEffect(() => {
         axios.get('https://jsonplaceholder.typicode.com/posts')
             .then(res => {
+                // console.log(data);
                 setData(res.data)
             })
             .catch(err => console.log(err))
